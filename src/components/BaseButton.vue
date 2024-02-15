@@ -45,6 +45,7 @@ export default defineComponent({
   font-size: 20px;
   line-height: 24px;
   font-family: "PT Mono", sans-serif;
+  cursor: pointer;
   filter: drop-shadow(0 0 4px rgba($color-green, 0.5));
 
   &:hover,
