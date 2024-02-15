@@ -27,7 +27,7 @@ import { IconType } from "@/types";
 import BaseTitle from "@/components/BaseTitle.vue";
 import BaseDescription from "@/components/BaseDescription.vue";
 import MatchItem from "@/components/MatchGame/MatchItem.vue";
-function shuffleArray(array) {
+function shuffleArray(array: Array<any>) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -74,11 +74,12 @@ export default defineComponent({
     const isCardOpen = (id: number) => openCards.value.includes(id);
 
     const compareItems = () => {
-      if (secondSelectedItem.value?.imageId === firstSelectedItem.value?.imageId) {
-        collectedIds.value.push(firstSelectedItem.value.imageId);
+      if(!firstSelectedItem.value || !secondSelectedItem.value ) return;
+      if (secondSelectedItem.value.imageId === firstSelectedItem.value?.imageId) {
+        collectedIds.value.push(firstSelectedItem.value?.imageId);
       }
-      firstSelectedItem.value = null;
-      secondSelectedItem.value = null;
+      firstSelectedItem.value = undefined;
+      secondSelectedItem.value = undefined;
       openCards.value = [];
       if (collectedIds.value.length === items.value.length / 2) {
         router.push({ name: "complete", query: { quest: "match" } });

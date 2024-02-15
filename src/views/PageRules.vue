@@ -18,23 +18,25 @@
         <p class="rules__text">Удачной охоты!</p>
       </BaseDescription>
     </div>
-    <BaseButton class="rules__button" :to="locationTo">Start</BaseButton>
+    <BaseButton class="rules__button" @click="onClick">Start</BaseButton>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
 import BaseButton from "@/components/BaseButton.vue";
 import BaseTitle from "@/components/BaseTitle.vue";
 import BaseDescription from "@/components/BaseDescription.vue";
 import { IconType } from "@/types";
-import type { RouteLocationRaw } from "vue-router";
 
 export default defineComponent({
   name: "PageRules",
   components: { BaseDescription, BaseTitle, BaseButton },
   setup() {
-    const locationTo: RouteLocationRaw = { name: "captcha" };
-    return { IconType, locationTo };
+    const router = useRouter();
+
+    const onClick = () => router.push({ name: "captcha" });
+    return { IconType, onClick };
   },
 });
 </script>

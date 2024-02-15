@@ -18,13 +18,12 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { IconType } from "@/types";
-import BaseButton from "@/components/BaseButton.vue";
 import BaseTitle from "@/components/BaseTitle.vue";
 import BaseDescription from "@/components/BaseDescription.vue";
 
 export default defineComponent({
   name: "PageComplete",
-  components: { BaseDescription, BaseTitle, BaseButton },
+  components: { BaseDescription, BaseTitle },
   props: {
     quest: { type: String, required: true },
   },
