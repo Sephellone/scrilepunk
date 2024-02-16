@@ -29,6 +29,11 @@ const router = createRouter({
       name: "match",
       component: () => import("../views/PageMatch.vue"),
     },
+    {
+      path: "/translate",
+      name: "translate",
+      component: () => import("../views/PageTranslate.vue"),
+    },
   ],
 });
 

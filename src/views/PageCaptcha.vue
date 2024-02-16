@@ -3,7 +3,7 @@
     <BaseTitle class="captcha__title" title="Докажи, что ты человек" red :icon="IconType.HEAD" />
     <div class="captcha__description">
       <BaseDescription>
-        <template #subtitle>Выбери все изображения, где есть светофоры</template>
+        <template #subtitle>{{subtitles[step]}}</template>
         <div class="captcha__field">
           <div
             v-for="tile in dynamicTiles"
@@ -35,10 +35,12 @@ export default defineComponent({
   setup() {
     const MAX_STEP = 2
     const solutions = [
-      [2, 4, 7],
-      [3, 1],
-      [4, 9]
+      [1, 3, 4, 6],
+      [2, 5, 4, 6],
+      [1, 2, 3, 5, 6]
     ]
+
+    const subtitles = ["Выбери все изображения, где есть светофоры", "Выбери все изображения с дорожными знаками", "Выбери все изображения, где есть самокаты"]
 
     const router = useRouter()
 
@@ -51,7 +53,7 @@ export default defineComponent({
       for (let i = 1; i <= 9; i++) {
         arr.push({
           id: i,
-          src: `/img/captcha${step.value + 1}/${i}.jpg`
+          src: `/img/captcha/${step.value + 1}/${i}.jpg`
         })
       }
       return arr
@@ -97,6 +99,8 @@ export default defineComponent({
     return {
       IconType,
       dynamicTiles,
+      subtitles,
+      step,
       showError,
       handleTileClick,
       checkSelectedTile,
@@ -145,7 +149,9 @@ export default defineComponent({
     width: 100%;
     height: 100%;
     &.__active {
-      border-color: $color-green;
+      border-color: darken($color-blue, 10%);
+      outline: 2px solid darken($color-blue, 10%);
+      outline-offset: -1px;
     }
   }
 
