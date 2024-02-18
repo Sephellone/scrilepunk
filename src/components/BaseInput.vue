@@ -2,27 +2,28 @@
   <input
     class="base-input"
     type="text"
-    v-model="value"
+    :value="value"
     :placeholder="placeholder"
+    :readonly="readonly"
     @input="onInput"
   />
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "BaseInput",
   props: {
     placeholder: { type: String, default: "" },
+    value: { type: String },
+    readonly: { type: Boolean, default: false },
   },
   setup(props, { emit }) {
-    const value = ref("");
-    const onInput = () => {
-      emit("inputValue", value.value);
+    const onInput = (e: Event) => {
+      emit("inputValue", (e.target as HTMLInputElement).value);
     };
 
     return {
-      value,
       onInput,
     };
   },

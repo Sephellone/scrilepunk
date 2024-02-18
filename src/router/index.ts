@@ -39,6 +39,27 @@ const router = createRouter({
       name: "riddles",
       component: () => import("../views/PageRiddles.vue"),
     },
+    {
+      path: "/catch",
+      name: "catch",
+      component: () => import("../views/PageCatch.vue"),
+    },
+    {
+      path: "/form",
+      name: "form",
+      component: () => import("../views/PageHome.vue"),
+    },
+    {
+      path: "/megaCaptcha",
+      name: "megaCaptcha",
+      component: () => import("../views/PageHome.vue"),
+    },
+    {
+      path: "/test",
+      name: "test",
+      component: () => import("../views/PageTest.vue"),
+    },
+    { path: "/:pathMatch(.*)*", component: () => import("../views/PageHome.vue") },
   ],
 });
 

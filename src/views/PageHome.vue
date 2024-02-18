@@ -1,24 +1,14 @@
 <template>
   <div class="home">
-    <BaseTitle class="home__title" title="Игра на выживание" red :icon="IconType.SCULL"></BaseTitle>
+    <BaseTitle class="home__title" title="404" red :icon="IconType.SCULL"></BaseTitle>
     <div class="home__description">
       <BaseDescription show-line>
-        <template #subtitle> Короткое описание задания </template>
+        <template #subtitle> Ты ошибся адресом </template>
         <p>
-          Разнообразный и богатый опыт реализация намеченных плановых заданий способствует
-          подготовки и реализации форм развития.
-        </p>
-        <br />
-        <p>
-          Товарищи! укрепление и развитие структуры представляет собой интересный эксперимент
-          проверки модели развития. С другой стороны рамки и место обучения кадров требуют от нас
-          анализа модели развития. Таким образом реализация намеченных плановых заданий обеспечивает
-          широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в
-          отношении поставленных задач
+          Не трогай адресную строку ручками >_>
         </p>
       </BaseDescription>
     </div>
-    <BaseButton class="home__button">Start</BaseButton>
   </div>
 </template>
 <script lang="ts">
@@ -26,7 +16,6 @@ import { defineComponent } from "vue";
 import BaseDescription from "@/components/BaseDescription.vue";
 import BaseTitle from "@/components/BaseTitle.vue";
 import { IconType } from "@/types";
-import BaseButton from "@/components/BaseButton.vue";
 
 export default defineComponent({
   name: "PageHome",
@@ -35,7 +24,7 @@ export default defineComponent({
       return IconType;
     },
   },
-  components: { BaseButton, BaseTitle, BaseDescription },
+  components: { BaseTitle, BaseDescription },
 });
 </script>
 
@@ -57,13 +46,9 @@ export default defineComponent({
     margin-bottom: 15px;
   }
 
-  &__button {
-    align-self: flex-end;
-    margin-top: 32px;
-  }
-
   :deep(.description) {
-    background-color: rgba($color-green, 0.15);
+    background-color: rgba($color-red, 0.15);
+    color: $color-red;
   }
 }
 </style>

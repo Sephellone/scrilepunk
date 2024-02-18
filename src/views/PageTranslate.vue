@@ -12,7 +12,7 @@
           .-.- .-.. ..-- -... .-.. ..-- -.. ...- .- .-- .- ... -.- .-. .. .--. -
         </p>
       </BaseDescription>
-      <base-input class="translate__input" placeholder="Ответ..." @inputValue="onInput" />
+      <base-input class="translate__input" placeholder="Ответ..." :value="inputedText" @inputValue="onInput" />
       <p v-if="error" class="translate__error">В переводе ошибка. Попробуй еще раз</p>
     </div>
     <BaseButton class="translate__button" small @click="checkAnswer">check</BaseButton>
@@ -51,7 +51,7 @@ export default defineComponent({
       }
     };
 
-    return { IconType, error, checkAnswer, onInput };
+    return { IconType, error, inputedText, checkAnswer, onInput };
   },
 });
 </script>

@@ -3,7 +3,7 @@
     <base-description>
       <img class="base-riddle__image" :src="imageSrc" alt="riddle" width="100" height="100" />
     </base-description>
-    <base-input class="base-riddle__input" placeholder="Ответ..." @inputValue="onInput" />
+    <base-input class="base-riddle__input" placeholder="Ответ..." :value="userAnswer" @inputValue="onInput" />
     <p v-if="error" class="base-riddle__error">Не угадал. Попробуй еще раз</p>
     <base-button v-if="!correct" class="base-riddle__button" small @click="checkAnswer"
       >Check</base-button
@@ -50,7 +50,7 @@ export default defineComponent({
       }
     };
 
-    return { error, correct, imageSrc, onInput, checkAnswer };
+    return { error, correct, imageSrc, userAnswer, onInput, checkAnswer };
   },
 });
 </script>
