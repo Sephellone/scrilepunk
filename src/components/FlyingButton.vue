@@ -12,7 +12,7 @@ export default defineComponent({
   },
   emits: ["click"],
   setup(props) {
-    let interval;
+    let interval: any;
     const style = ref({ left: "50%", top: "50%" });
 
     const changeButtonPosition = () => {
