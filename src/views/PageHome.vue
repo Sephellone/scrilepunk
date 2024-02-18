@@ -4,9 +4,7 @@
     <div class="home__description">
       <BaseDescription show-line>
         <template #subtitle> Ты ошибся адресом </template>
-        <p>
-          Не трогай адресную строку ручками >_>
-        </p>
+        <p>Не трогай адресную строку ручками >_></p>
       </BaseDescription>
     </div>
   </div>

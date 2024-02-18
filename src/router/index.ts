@@ -47,7 +47,7 @@ const router = createRouter({
     {
       path: "/form",
       name: "form",
-      component: () => import("../views/PageHome.vue"),
+      component: () => import("../views/PageForm.vue"),
     },
     {
       path: "/megaCaptcha",
