@@ -2,7 +2,7 @@
   <div class="translate">
     <BaseTitle
       class="translate__title"
-      title="Переведите"
+      title="Переведи текст"
       red
       :icon="IconType.TRANSLATE"
     ></BaseTitle>
@@ -13,7 +13,7 @@
         </p>
       </BaseDescription>
       <base-input class="translate__input" placeholder="Ответ..." @inputValue="onInput" />
-      <p v-if="error" class="translate__error">В переводе ошибка. Попробуйте еще раз</p>
+      <p v-if="error" class="translate__error">В переводе ошибка. Попробуй еще раз</p>
     </div>
     <BaseButton class="translate__button" small @click="checkAnswer">check</BaseButton>
   </div>

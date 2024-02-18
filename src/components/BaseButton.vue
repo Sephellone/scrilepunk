@@ -25,6 +25,7 @@ export default defineComponent({
     blue: { type: Boolean, default: false },
     small: { type: Boolean, default: false },
   },
+  emits: ["click"],
 });
 </script>
 
@@ -80,20 +81,7 @@ export default defineComponent({
       width: 100%;
       height: 100%;
       background-color: $color-green;
-      clip-path: polygon(
-        1px 0,
-        100% 0,
-        100% calc(100% - 5px),
-        calc(100% - 5px) 100%,
-        0 100%,
-        0 1px,
-        1px 1px,
-        1px calc(100% - 1px),
-        calc(100% - 5px) calc(100% - 1px),
-        calc(100% - 1px) calc(100% - 5px),
-        calc(100% - 1px) 1px,
-        1px 1px
-      );
+      clip-path: $polygon;
     }
   }
 

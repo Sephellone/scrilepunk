@@ -1,5 +1,11 @@
 <template>
-  <input class="base-input" type="text" v-model="value" :placeholder="placeholder" @input="onInput" />
+  <input
+    class="base-input"
+    type="text"
+    v-model="value"
+    :placeholder="placeholder"
+    @input="onInput"
+  />
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -24,16 +30,13 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/variables.scss';
+@import "@/assets/variables.scss";
 
 .base-input {
   display: block;
   width: 100%;
   padding: 8px;
-  font-family:
-      "PT Mono",
-      Inter,
-      sans-serif;
+  font-family: "PT Mono", Inter, sans-serif;
   text-transform: uppercase;
   font-size: 16px;
   line-height: 20px;

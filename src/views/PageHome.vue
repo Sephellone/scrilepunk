@@ -3,14 +3,12 @@
     <BaseTitle class="home__title" title="Игра на выживание" red :icon="IconType.SCULL"></BaseTitle>
     <div class="home__description">
       <BaseDescription show-line>
-        <template #subtitle>
-          Короткое описание задания
-        </template>
+        <template #subtitle> Короткое описание задания </template>
         <p>
           Разнообразный и богатый опыт реализация намеченных плановых заданий способствует
           подготовки и реализации форм развития.
         </p>
-        <br>
+        <br />
         <p>
           Товарищи! укрепление и развитие структуры представляет собой интересный эксперимент
           проверки модели развития. С другой стороны рамки и место обучения кадров требуют от нас
@@ -24,25 +22,25 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-import BaseDescription from '@/components/BaseDescription.vue'
-import BaseTitle from '@/components/BaseTitle.vue'
-import { IconType } from '@/types'
+import { defineComponent } from "vue";
+import BaseDescription from "@/components/BaseDescription.vue";
+import BaseTitle from "@/components/BaseTitle.vue";
+import { IconType } from "@/types";
 import BaseButton from "@/components/BaseButton.vue";
 
 export default defineComponent({
-  name: 'PageHome',
+  name: "PageHome",
   computed: {
     IconType() {
-      return IconType
-    }
+      return IconType;
+    },
   },
-  components: {BaseButton, BaseTitle, BaseDescription }
-})
+  components: { BaseButton, BaseTitle, BaseDescription },
+});
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/variables.scss';
+@import "@/assets/variables.scss";
 .home {
   display: flex;
   flex-direction: column;

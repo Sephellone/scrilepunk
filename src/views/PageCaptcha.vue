@@ -3,7 +3,7 @@
     <BaseTitle class="captcha__title" title="Докажи, что ты человек" red :icon="IconType.HEAD" />
     <div class="captcha__description">
       <BaseDescription>
-        <template #subtitle>{{subtitles[step]}}</template>
+        <template #subtitle>{{ subtitles[step] }}</template>
         <div class="captcha__field">
           <div
             v-for="tile in dynamicTiles"
@@ -22,79 +22,83 @@
   </div>
 </template>
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { IconType } from '@/types'
-import BaseTitle from '@/components/BaseTitle.vue'
-import BaseButton from '@/components/BaseButton.vue'
-import BaseDescription from '@/components/BaseDescription.vue'
+import { computed, defineComponent, ref } from "vue";
+import { useRouter } from "vue-router";
+import { IconType } from "@/types";
+import BaseTitle from "@/components/BaseTitle.vue";
+import BaseButton from "@/components/BaseButton.vue";
+import BaseDescription from "@/components/BaseDescription.vue";
 
 export default defineComponent({
-  name: 'PageCaptcha',
+  name: "PageCaptcha",
   components: { BaseDescription, BaseButton, BaseTitle },
   setup() {
-    const MAX_STEP = 2
+    const MAX_STEP = 2;
     const solutions = [
       [1, 3, 4, 6],
       [2, 5, 4, 6],
-      [1, 2, 3, 5, 6]
-    ]
+      [1, 2, 3, 5, 6],
+    ];
 
-    const subtitles = ["Выбери все изображения, где есть светофоры", "Выбери все изображения с дорожными знаками", "Выбери все изображения, где есть самокаты"]
+    const subtitles = [
+      "Выбери все изображения, где есть светофоры",
+      "Выбери все изображения с дорожными знаками",
+      "Выбери все изображения, где есть самокаты",
+    ];
 
-    const router = useRouter()
+    const router = useRouter();
 
-    const step = ref(0)
-    const answers = ref<number[]>([])
-    const showError = ref(false)
+    const step = ref(0);
+    const answers = ref<number[]>([]);
+    const showError = ref(false);
 
     const dynamicTiles = computed(() => {
-      const arr = []
+      const arr = [];
       for (let i = 1; i <= 9; i++) {
         arr.push({
           id: i,
-          src: `/img/captcha/${step.value + 1}/${i}.jpg`
-        })
+          src: `/img/captcha/${step.value + 1}/${i}.jpg`,
+        });
       }
-      return arr
-    })
+      return arr;
+    });
 
-    const checkSelectedTile = (id: number) => answers.value.includes(id)
+    const checkSelectedTile = (id: number) => answers.value.includes(id);
 
     const handleTileClick = (id: number) => {
       if (showError.value) {
-        showError.value = false
+        showError.value = false;
       }
       if (!answers.value.includes(id)) {
-        answers.value.push(id)
+        answers.value.push(id);
       } else {
-        answers.value = answers.value.filter((i) => i !== id)
+        answers.value = answers.value.filter(i => i !== id);
       }
-    }
+    };
 
     const puzzleSolved = computed(() => {
       return (
         answers.value.length &&
         answers.value.length === solutions[step.value].length &&
-        answers.value.every((value) => solutions[step.value].includes(value))
-      )
-    })
+        answers.value.every(value => solutions[step.value].includes(value))
+      );
+    });
 
     const onCheckButtonClick = () => {
       if (!answers.value.length) {
-        return
+        return;
       }
       if (!puzzleSolved.value) {
-        showError.value = true
-        return
+        showError.value = true;
+        return;
       } else if (step.value < MAX_STEP) {
-        step.value = step.value + 1
-        answers.value = []
-        showError.value = false
+        step.value = step.value + 1;
+        answers.value = [];
+        showError.value = false;
       } else {
-        router.push({ name: 'complete', query: { quest: 'captcha' } })
+        router.push({ name: "complete", query: { quest: "captcha" } });
       }
-    }
+    };
 
     return {
       IconType,
@@ -104,14 +108,14 @@ export default defineComponent({
       showError,
       handleTileClick,
       checkSelectedTile,
-      onCheckButtonClick
-    }
-  }
-})
+      onCheckButtonClick,
+    };
+  },
+});
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/variables.scss';
+@import "@/assets/variables.scss";
 
 .captcha {
   display: flex;
@@ -140,6 +144,8 @@ export default defineComponent({
 
   &__field {
     display: grid;
+    max-width: 700px;
+    margin: 0 auto;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
   }

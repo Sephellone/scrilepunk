@@ -4,13 +4,12 @@
   </div>
 </template>
 <script lang="ts">
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "BaseHeader"
-})
+  name: "BaseHeader",
+});
 </script>
-
 
 <style scoped lang="scss">
 @import "@/assets/variables.scss";
@@ -28,7 +27,20 @@ export default defineComponent({
     height: 10px;
     background-color: $color-red;
     opacity: 0.5;
-    clip-path: polygon(0 0, calc(35% + 1px) 0, 37.5% calc(100% - 1px), 62.5% calc(100% - 1px), calc(65% - 1px) 0, 100% 0, 100% 1px, 65% 1px, 62.5% 100%, 37.5% 100%, 35% 1px, 0 1px );
+    clip-path: polygon(
+      0 0,
+      calc(35% + 1px) 0,
+      37.5% calc(100% - 1px),
+      62.5% calc(100% - 1px),
+      calc(65% - 1px) 0,
+      100% 0,
+      100% 1px,
+      65% 1px,
+      62.5% 100%,
+      37.5% 100%,
+      35% 1px,
+      0 1px
+    );
   }
 
   &::after {
@@ -42,7 +54,6 @@ export default defineComponent({
     line-height: 6px;
     color: $color-red;
     opacity: 0.5;
-
   }
 }
 </style>

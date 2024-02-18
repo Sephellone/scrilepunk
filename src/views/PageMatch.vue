@@ -74,7 +74,7 @@ export default defineComponent({
     const isCardOpen = (id: number) => openCards.value.includes(id);
 
     const compareItems = () => {
-      if(!firstSelectedItem.value || !secondSelectedItem.value ) return;
+      if (!firstSelectedItem.value || !secondSelectedItem.value) return;
       if (secondSelectedItem.value.imageId === firstSelectedItem.value?.imageId) {
         collectedIds.value.push(firstSelectedItem.value?.imageId);
       }

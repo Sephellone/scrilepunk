@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -33,6 +33,11 @@ const router = createRouter({
       path: "/translate",
       name: "translate",
       component: () => import("../views/PageTranslate.vue"),
+    },
+    {
+      path: "/riddles",
+      name: "riddles",
+      component: () => import("../views/PageRiddles.vue"),
     },
   ],
 });

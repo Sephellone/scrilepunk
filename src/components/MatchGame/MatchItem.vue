@@ -21,6 +21,7 @@ export default defineComponent({
     id: { type: Number, required: true },
     imageOpen: { type: Boolean, required: true },
   },
+  emits: ["itemOpened"],
   setup(props, { emit }) {
     const animated = ref(false);
 
@@ -34,12 +35,12 @@ export default defineComponent({
     const handleClick = debounce(() => {
       if (props.imageOpen) return;
       setTimeout(() => {
-        emit("itemOpened")
-      }, 100)
+        emit("itemOpened");
+      }, 100);
       animateTile();
     }, 200);
 
-    watch(toRef(props, "imageOpen"), animateTile)
+    watch(toRef(props, "imageOpen"), animateTile);
 
     return { animated, handleClick };
   },

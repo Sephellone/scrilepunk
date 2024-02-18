@@ -1,5 +1,20 @@
-$color-bg: #0E0E17;
-$color-red: #F75049;
-$color-blue: #5EF6FF;
-$color-green: #1DED83;
-$color-white: #FFFFFF;
+$color-bg: #0e0e17;
+$color-red: #f75049;
+$color-blue: #5ef6ff;
+$color-green: #1ded83;
+$color-white: #ffffff;
+
+$polygon: polygon(
+  1px 0,
+  100% 0,
+  100% calc(100% - 5px),
+  calc(100% - 5px) 100%,
+  0 100%,
+  0 1px,
+  1px 1px,
+  1px calc(100% - 1px),
+  calc(100% - 5px) calc(100% - 1px),
+  calc(100% - 1px) calc(100% - 5px),
+  calc(100% - 1px) 1px,
+  1px 1px
+);
