@@ -52,10 +52,10 @@ const router = createRouter({
     {
       path: "/megaCaptcha",
       name: "megaCaptcha",
-      component: () => import("../views/PageHome.vue"),
+      component: () => import("../views/PageMegaCaptcha.vue"),
     },
     {
-      path: "/test",
+      path: "/testOloloHidden",
       name: "test",
       component: () => import("../views/PageTest.vue"),
     },
