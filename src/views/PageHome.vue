@@ -5,12 +5,13 @@
       <BaseDescription show-line>
         <template #subtitle> Ты ошибся адресом </template>
         <p>Не трогай адресную строку ручками >_></p>
+        <p>referrer: {{referrer}}</p>
       </BaseDescription>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import BaseDescription from "@/components/BaseDescription.vue";
 import BaseTitle from "@/components/BaseTitle.vue";
 import { IconType } from "@/types";
@@ -23,6 +24,11 @@ export default defineComponent({
     },
   },
   components: { BaseTitle, BaseDescription },
+  setup() {
+    const referrer = computed(() => document.referrer);
+
+    return { referrer }
+  },
 });
 </script>
 
